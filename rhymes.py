@@ -1,4 +1,4 @@
-import pronouncing as P
+import pronouncing as P # pip install pronouncing
 import random
 import numpy as np
 import sys
