@@ -1,0 +1,148 @@
+A silly Python script that generates verse in arbitrary rhyme and stress patterns. 
+
+The base is the "pronouncing" library ( pronouncing.readthedocs.io ), a Python library for parsing the CMU pronunciation dictionary (http://www.speech.cs.cmu.edu/cgi-bin/cmudict).
+
+Using the entire dictionary produces hard-to-read stuff with lots of obscure words, so I use a list of the 3,000 most common words in the English language to build a sub-dictionary.
+
+The method for building a random verse relies a lot on trial and error because of the "greedy" algorithm - given the limited set of words, there is often no word that fits the previous words in the verse. If that happens, it starts over with a new random verse. This is common, especially with longer verses like sonnets, so it might have several "failures" before it spits out something. It's fast enough that this lack of efficiency doesn't matter much.
+
+The most expensive part is generating the list of rhymes and pronunciations for the 3,000 words at the beginning. After that, it's all pretty quick.
+
+This is quick and dirty and was produced during baby naps while I was on leave from work. This is not intended as an example of high-quality production code!
+
+Here is some sample output:
+
+----
+BALLAD
+defend regime regardless sing,
+record distinguish tail,
+request unlikely standing king,
+and recognize detail,
+
+submit continued silence wage,
+a blue forever knee,
+prescription testify a page,
+a everywhere in three,
+
+exposure link divorce pursue,
+a during afternoon,
+the killer otherwise a you,
+and gift pollution moon,
+
+and versus radio express,
+and hole extent relate,
+convince assistance credit yes,
+and coffee hold debate,
+
+extensive quiet setting freeze,
+the regulate remove,
+another trick perform disease,
+division million move,
+
+and brilliant who today forget,
+subject abandon blow,
+conclude requirement bottom wet,
+despite perform a owe,
+
+SONNETS
+in metal illustrate despite assess,
+precisely movement recognize restore,
+assign consist connection nonetheless,
+a yesterday in work ideal before,
+entire sea and board admire explode,
+exactly constitute in yeah and chair,
+diverse a telephone creation code,
+solution have a height in mouth a care,
+in permanent creative gold himself,
+computer crazy center arm deny,
+a film the virtue them and open shelf,
+explain surprise dismiss performance pie,
+the joy and magazine remain elite,
+and cigarette performance hear a heat,
+
+apply the introduce reduce expense,
+the radio description hungry boat,
+account already magazine offense,
+and message glance a meeting basis throat,
+admission uniform attempt the mom,
+devote in analyze domestic rush,
+attach in dirty occupy the palm,
+the onion choose relate in dust and brush,
+distinct diverse perfect distribute hey,
+a two research return in solid stair,
+become beyond the breath description stay,
+disaster symbol sugar dirty prayer,
+in otherwise confront alliance nerve,
+remind establish generate preserve,
+
+requirement unit shock upon and low,
+in indicate advantage expert sheet,
+the parking gene location portion grow,
+awareness circle pot whereas elite,
+the user tablespoon surprising most,
+assure enormous shrug propose subject,
+appearance hungry index death a post,
+disorder even enterprise elect,
+in cigarette discussion instance stream,
+upon accuse contribute thick a then,
+debate and pose the illustrate in theme,
+a testify a barrel breast the ten,
+in clear concerned in organize extend,
+and concentrate defendant upper send,
+
+perspective bend the move and frame attach,
+dimension everywhere defense recruit,
+the question press extend artistic patch,
+consultant better classic cloud dispute,
+the drag commission view the dear prefer,
+examine partnership until and mad,
+survive embrace the steady fighting stir,
+become abroad agreement sweet and add,
+divide finance extension disappear,
+in tape assert distinction slave and rush,
+perspective wave and habitat the year,
+allow diverse electric resource brush,
+department volunteer destruction shoot,
+around procedure cigarette the route,
+
+HEROIC VERSE
+yourself acquire cool the year perform,
+accomplish yesterday commercial form,
+ago withdraw withdraw yourself attract,
+remember atmosphere agenda fact,
+compose a studio reaction walk,
+upon director disappear the talk,
+exhibit parent price a slightly bowl,
+defendant user hand adjust control,
+a bed the not alive occur in tone,
+in universe select admission own,
+career in desk away existing shore,
+enforcement patch tremendous culture war,
+a ally message into sit and cop,
+recovery wooden fun a substance pop,
+and large arrival wedding acid base,
+destroy in desperate friendly very race,
+technique and for in breath procedure end,
+extensive probably behind defend,
+achievement portrait heavy circle gold,
+the tablespoon director album old,
+a mean a modest analyze a since,
+in enter loss beyond enhance convince,
+distinct opinion than the treat aside,
+before destruction telescope in wide,
+possess ahead and undergo commit,
+prevent complain a dialogue permit,
+disease the uniform in ride dismiss,
+a read detail expansion golf in this,
+technique complaint a modern reading teen,
+the tablespoon perhaps formation screen,
+complete command the that a system trail,
+a demonstrate supporter dead detail,
+deserve divorce in by within design,
+observe collective her accept in line,
+respond in settle meter anyway,
+alliance concentrate in yesterday,
+themselves conclusion high a gently die,
+a them arrangement permanent rely,
+opponent cold a overlook the fair,
+adviser cigarette historic air,
