@@ -10,7 +10,9 @@ The most expensive part is generating the list of rhymes and pronunciations for 
 
 This is quick and dirty and was produced during baby naps while I was on leave from work. This is not intended as an example of high-quality production code!
 
-Here is some sample output:
+If you're masochistic or sadistic enough, and you also use a Mac, you can switch around the comments in the `words_to_line` function, and your computer will read the verse out to you directly, spitting mad fire directly.
+
+Here is some sample output: (n.b. as noted in xkcd and achewood, all ballads can be sung to the tune of Gilligan's Island)
 
 ----
 BALLAD
