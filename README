@@ -1,10 +1,10 @@
 A silly Python script that generates verse in arbitrary rhyme and stress patterns. 
 
-The base is the "pronouncing" library ( pronouncing.readthedocs.io ), a Python library for parsing the CMU pronunciation dictionary (http://www.speech.cs.cmu.edu/cgi-bin/cmudict).
+The base is the "pronouncing" library ( pronouncing.readthedocs.io ), a Python library for parsing the CMU pronunciation dictionary (http://www.speech.cs.cmu.edu/cgi-bin/cmudict). You need to install this first - `pip install pronouncing` will do it.
 
 Using the entire dictionary produces hard-to-read stuff with lots of obscure words, so I use a list of the 3,000 most common words in the English language to build a sub-dictionary.
 
-The method for building a random verse relies a lot on trial and error because of the "greedy" algorithm - given the limited set of words, there is often no word that fits the previous words in the verse. If that happens, it starts over with a new random verse. This is common, especially with longer verses like sonnets, so it might have several "failures" before it spits out something. It's fast enough that this lack of efficiency doesn't matter much.
+The method for building a random verse relies a lot on trial and error because of the "greedy" algorithm - given the limited set of words, there is often no word that fits the previous words in the verse, especially taking rhyme into account. If that happens, it starts over with a new random verse. This is common, especially with longer verses like sonnets, so it might have several "failures" before it spits out something. It's fast enough that this lack of efficiency doesn't matter much.
 
 The most expensive part is generating the list of rhymes and pronunciations for the 3,000 words at the beginning. After that, it's all pretty quick.
 
