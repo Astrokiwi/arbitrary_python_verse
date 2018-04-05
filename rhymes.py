@@ -111,6 +111,21 @@ iambic_pentameter = ["0","[12]","0","[12]","0","[12]","0","[12]","0","[12]"]
 iambic_tetrameter = ["0","[12]","0","[12]","0","[12]","0","[12]"]
 iambic_trimeter = ["0","[12]","0","[12]","0","[12]"]
 mixitup_meter = ["0","[12]","0","[12]","0","0","[12]"]
+double_dactyl = ["[12]","0","0","[12]","0","0"]
+dactyl_end = ["[12]","0","0","[12]"]
+
+# kids story
+print("STORYBOOK")
+for istanza in range(6):
+    for icouplet in range(2):
+        common3000.generic_stanza([[0,1]],[iambic_tetrameter],[0,0])
+    print()
+
+# double dactyl
+print("DOUCLEDACTYL")
+for istanza in range(6):
+    common3000.generic_stanza([[3,7]],[double_dactyl,dactyl_end],[0,0,0,1,0,0,0,1])
+    print()
 
 # ballad
 print("BALLAD")
