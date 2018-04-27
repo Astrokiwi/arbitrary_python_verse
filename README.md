@@ -14,6 +14,7 @@ If you're masochistic or sadistic enough, and you also use a Mac, you can switch
 
 Here is some sample output: (n.b. as noted in xkcd and achewood, all ballads can be sung to the tune of Gilligan's Island)
 
+```
 ----
 STORYBOOK
 in southern everywhere sustain,
@@ -234,4 +235,4 @@ in patient interest equipment sleep,
 in satisfy in more develop cheap,
 in structure union theme condition take,
 expansion park in belt relax mistake,
-
+```
