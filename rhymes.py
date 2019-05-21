@@ -42,23 +42,30 @@ class commonword_manager:
         return random.choice(self.search_stress_rhymes(word,stress_pattern))
     
     def meter_line(self,stress_pattern_list,rhymeword=None):
+        """Generates a line of verse based on the stress patten, with an option to force a rhyme for the last word
+        
+        This is the 'meat' of the code, and is incredibly inefficient and lazy. If it can't find a work that fits,
+        it discards everything and starts over. If it finds a word is repeats in a line, it throws it out and starts again too
+        """
         nsyllables = len(stress_pattern_list)
-        nsyllables_so_far = 0
-        words_syllables = []
-        while nsyllables_so_far<nsyllables:
-            words_syllables.append(random.randint(1,3))
-            nsyllables_so_far+=words_syllables[-1]
-        if nsyllables_so_far>nsyllables:
-            words_syllables[-1]-=nsyllables_so_far-nsyllables
-        nwords = len(words_syllables)
-        word_syllable_indices = np.cumsum(words_syllables)[:-1]
-        word_syllable_indices=np.insert(word_syllable_indices,0,0)
-        word_stresses = ["".join(stress_pattern_list[word_syllable_indices[i]:word_syllable_indices[i]+words_syllables[i]])+"$" for i in range(nwords)]
-        ngenerate = nwords-1 if rhymeword else nwords
-        words = [self.random_stress(word_stresses[i]) for i in range(ngenerate)]
-        if rhymeword:
-            words.append(self.random_stress_rhymes(rhymeword,word_stresses[-1]))
-        return words
+        while True:
+            nsyllables_so_far = 0
+            words_syllables = []
+            while nsyllables_so_far<nsyllables:
+                words_syllables.append(random.randint(1,3))
+                nsyllables_so_far+=words_syllables[-1]
+            if nsyllables_so_far>nsyllables:
+                words_syllables[-1]-=nsyllables_so_far-nsyllables
+            nwords = len(words_syllables)
+            word_syllable_indices = np.cumsum(words_syllables)[:-1]
+            word_syllable_indices=np.insert(word_syllable_indices,0,0)
+            word_stresses = ["".join(stress_pattern_list[word_syllable_indices[i]:word_syllable_indices[i]+words_syllables[i]])+"$" for i in range(nwords)]
+            ngenerate = nwords-1 if rhymeword else nwords
+            words = [self.random_stress(word_stresses[i]) for i in range(ngenerate)]
+            if rhymeword:
+                words.append(self.random_stress_rhymes(rhymeword,word_stresses[-1]))
+            if len(set(words))==len(words):
+                return words
 
     def couplet_stanza(self,ncouplets):
         metre = ["0","[12]","0","[12]","0","[12]","0","[12]","0","[12]"] # iambic pentameter
